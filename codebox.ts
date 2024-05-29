@@ -21,10 +21,13 @@ export default class CodeBox {
       return;
     }
 
+    const min = Math.ceil(10000000000);
+    const max = Number.MAX_SAFE_INTEGER;
+    this.session_id = (Math.floor(Math.random() * (max - min + 1)) + min).toString();
+
     try {
-      const response = await this.axiosInstance.get('/codebox/start');
-      this.session_id = response.data.id;
-      console.log("CodeBox started!");
+      await this.axiosInstance.get(`/codebox/${this.session_id}/`);
+      await this.run("import os; os.chdir('/mnt/data/')")
     } catch (error) {
       this.handleError(error, "Failed to start CodeBox.");
     }
