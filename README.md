@@ -1,15 +1,71 @@
 # codebox-js
 
-To install dependencies:
+[![Version](https://badge.fury.io/js/codeboxapi.svg)](https://badge.fury.io/js/codeboxapi)
+[![code-check](https://github.com/shroominic/codebox-api/actions/workflows/code-check.yml/badge.svg)](https://github.com/shroominic/codebox-api/actions/workflows/code-check.yml)
+![Downloads](https://img.shields.io/npm/dm/codeboxapi)
+![License](https://img.shields.io/npm/l/codeboxapi)
+
+CodeBoxAPI is the simplest cloud infrastructure for your LLM Apps and Services.
+It allows you to run *python code* in an isolated/sandboxed environment.
+Additionally, it provides simple fileIO (and vector database support coming soon).
+
+## Installation
+
+You can install CodeBox-JS with npm:
 
 ```bash
-bun install
+npm install codeboxapi
 ```
 
-To run:
+## Usage
 
 ```bash
-bun run codebox.ts
+export CODEBOX_API_KEY=sk-***************
 ```
 
-This project was created using `bun init` in bun v1.0.14. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+```javascript
+import CodeBox from 'codeboxapi';
+
+// startup and automatically shutdown a new codebox
+const codebox = new CodeBox();
+
+codebox.start()
+// check if it's running
+console.log(codebox.status());
+
+// run some code
+codebox.run("a = 'Hello'");
+codebox.run("b = 'World!'");
+codebox.run("result = a + ', ' + b");
+let result = codebox.run("print(result)");
+
+console.log(result);
+// Hello, World!
+
+codebox.stop();
+```
+
+## Where to get your api-key?
+
+Checkout the [pricing page](https://codeboxapi.com/pricing) of CodeBoxAPI. By subscribing to a plan,
+you will receive an account with an api-key.
+Bear in mind, we don't have many automations set up right now,
+so you'll need to write an [email](mailto:team@codeboxapi.com) for things like refunds,
+sub cancellations, or upgrades.
+
+## Docs
+
+Checkout the [documentation](https://shroominic.github.io/codebox-api/) for more details!
+
+## Contributing
+
+Feel free to contribute to this project.
+You can open an issue or submit a pull request.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contact
+
+You can contact me at [team@codeboxapi.com](mailto:team@codeboxapi.com)
