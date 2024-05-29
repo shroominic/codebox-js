@@ -8,7 +8,7 @@
     "build": "bun build ./codebox.ts --outdir ./dist"
   },
   "exports": {
-    ".": "./codebox.ts"
+    ".": "./build/codebox.js"
   },
   "repository": {
     "type": "git",
