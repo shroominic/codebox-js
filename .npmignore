@@ -1,0 +1,8 @@
+.DS_Store
+.env
+*.ts
+bun.lockb
+.env.example
+tsconfig.json
+.context
+node_modules
