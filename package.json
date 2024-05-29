@@ -4,7 +4,8 @@
   "description": "CodeBox gives you an easy scalable and isolated python interpreter for your LLM Agents.",
   "type": "module",
   "scripts": {
-    "test": "bun run test.ts"
+    "test": "bun run test.ts",
+    "build": "bun build ./codebox.ts --outdir ./dist"
   },
   "exports": {
     ".": "./codebox.ts"
