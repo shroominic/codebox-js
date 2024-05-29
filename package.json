@@ -1,6 +1,6 @@
 {
   "name": "codeboxapi",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "CodeBox gives you an easy scalable and isolated python interpreter for your LLM Agents.",
   "type": "module",
   "scripts": {
