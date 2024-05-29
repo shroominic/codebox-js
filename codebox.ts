@@ -30,6 +30,18 @@ export default class CodeBox {
     }
   }
 
+  async status() {
+    if (!this.session_id) {
+      throw new Error("Make sure to start your CodeBox before using it.");
+    }
+    try {
+      const response = await this.axiosInstance.get(`/codebox/${this.session_id}/`);
+      return response.data;
+    } catch (error) {
+      this.handleError(error, "Failed to get CodeBox status.");
+    }
+  }
+
   async run(code: string): Promise<{ type: string; content: string; } | undefined> {
     if (!this.session_id) {
       throw new Error("Make sure to start your CodeBox before using it.");
