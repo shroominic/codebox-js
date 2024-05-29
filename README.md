@@ -29,20 +29,18 @@ import CodeBox from 'codeboxapi';
 // startup and automatically shutdown a new codebox
 const codebox = new CodeBox();
 
-codebox.start()
-// check if it's running
-console.log(codebox.status());
+await codebox.start();
 
 // run some code
-codebox.run("a = 'Hello'");
-codebox.run("b = 'World!'");
-codebox.run("result = a + ', ' + b");
-let result = codebox.run("print(result)");
+await codebox.run("a = 'Hello'");
+await codebox.run("b = 'World!'");
+await codebox.run("result = a + ', ' + b");
+let result = await codebox.run("print(result)");
 
 console.log(result);
 // Hello, World!
 
-codebox.stop();
+await codebox.stop();
 ```
 
 ## Where to get your api-key?
